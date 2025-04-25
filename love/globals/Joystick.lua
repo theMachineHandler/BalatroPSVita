@@ -1,9 +1,11 @@
---Joystick class globals
-Joystick = {}
+--[[
+    This needs to be implemented
+]]--
+
+Joystick = Object:new("Joystick")
 
 function Joystick:new(id)
-    local self = {}
-    setmetatable(self, { __index = Joystick })
+    self = Object:new(self.name, self)
     self.id = id
     Logger.logfile("Joystick:new - fake - passed")
     return self
