@@ -4,7 +4,6 @@
 Quad = Object:new("Quad")
 
 function Quad:new(x, y, width, height, sw, sh)
-    self = Object:new(self.name, self)
     self.x = x
     self.y = y
     self.width = width

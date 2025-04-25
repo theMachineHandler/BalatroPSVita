@@ -3,13 +3,12 @@
     Needs more work
 ]]--
 
-Image = Object:new("Image")
+Image = Texture:new("Image")
 
 -- Generates new image "object"
 -- Added filepath to manage memory by loading on 
 -- demand instead of everything at once during initialization
 function Image:new(x, y, mipmap, linear, scale, filepath)
-    self = Object:new(self.name, self)
     self.width_x = x
     self.height_y = y
     self.mipmap = mipmap
@@ -17,7 +16,7 @@ function Image:new(x, y, mipmap, linear, scale, filepath)
     self.scale = scale
     self.filepath = filepath
     --self.image = Graphics.loadImage(filepath)
-    Logger.logfile("Image:new - passed")
+    Logger.logfile("Image:new - wip - passed")
     return self
 end
 
@@ -26,6 +25,4 @@ function Image:getDimensions()
     return self.width_x, self.height_y
 end
 
-Logger.logfile("love class - Image module loaded")
-
-Logger.logfile("love class - Image module loaded")
+Logger.logfile("love class - Image module loaded - wip")

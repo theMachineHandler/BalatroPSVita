@@ -1,7 +1,6 @@
-Canvas = Object:new("Canvas")
+Canvas = Texture:new("Canvas")
 
 function Canvas:new(width, height, settings, filepath)
-    self = Object:new(self.name, self)
     self.width = width
     self.height = height
     self.type = settings.type

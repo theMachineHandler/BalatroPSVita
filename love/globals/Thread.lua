@@ -6,7 +6,6 @@ Thread = Object:new("Thread")
 
 -- just testing
 function Thread:new(name)
-    self = Object:new(self.name, self)
     self.name = name
     Logger.logfile("Thread:new - fake - passed")
     return self

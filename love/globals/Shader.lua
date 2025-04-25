@@ -4,7 +4,6 @@
 Shader = Object:new("Shader")
 
 function Shader:new()
-    self = Object:new(self.name, self)
     Logger.logfile("Shader:new - fake - passed")
     return self
 end

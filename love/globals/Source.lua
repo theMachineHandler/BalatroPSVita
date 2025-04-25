@@ -7,7 +7,6 @@ Source = Object:new("Source")
 
 function Source:new(filename, priority)
     Logger.func_info("Source:new")
-    self = Object:new(self.name, self)
     self.filename = filename
     self.priority = priority
     return self

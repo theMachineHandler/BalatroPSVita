@@ -5,7 +5,6 @@
 Channel = Object:new("Channel")
 
 function Channel:new()
-    self = Object:new(self.name, self)
     self.message = {}
     Logger.logfile("Channel:new - wip - passed")
     return self

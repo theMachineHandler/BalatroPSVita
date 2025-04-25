@@ -5,7 +5,6 @@
 Joystick = Object:new("Joystick")
 
 function Joystick:new(id)
-    self = Object:new(self.name, self)
     self.id = id
     Logger.logfile("Joystick:new - fake - passed")
     return self
