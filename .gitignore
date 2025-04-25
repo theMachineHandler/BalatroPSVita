@@ -1,0 +1,17 @@
+# Ignore .vscode folder (VS Code settings)
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Lua bytecode
+*.luac
+
+# Ignore temporary files and logs
+*.log
+*.tmp
+
+# Unrelated files
+save/
+game/
