@@ -1,10 +1,12 @@
---Shader object globals
-Shader = {}
+--[[
+    Needs more work
+]]--
+Shader = Object:new("Shader")
 
 function Shader:new()
-    local shader = setmetatable({}, { __index = Shader })
+    self = Object:new(self.name, self)
     Logger.logfile("Shader:new - fake - passed")
-    return shader
+    return self
 end
 
 function Shader:send(name, number, ...)
