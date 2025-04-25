@@ -19,5 +19,6 @@ require("globals/Shader")
 require("globals/Source")
 require("globals/Texture")
 require("globals/Thread")
+require("globals/Transform")
 
 Logger.logfile("love classes module loaded")
