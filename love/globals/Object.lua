@@ -11,6 +11,14 @@ function Object:new(name, object)
     return object
 end
 
-function Object:typeOf()
-    return self.name
+function Object:typeOf(type)
+    local current_type = self
+    while current_type do
+        if current_type.name == type then
+            return true
+        end
+        local current_metatable = getmetatable(current_type)
+        current_type = current_metatable and current_metatable.__index or nil
+    end
+    return false
 end
