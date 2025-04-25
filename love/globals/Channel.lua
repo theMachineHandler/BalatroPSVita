@@ -1,23 +1,18 @@
---Channel class globals
-Channel = {}
+--[[
+    This needs cleaning and work
+]]--
+
+Channel = Object:new("Channel")
 
 function Channel:new()
-    local channel = setmetatable({}, { __index = Channel })
-    channel.message = {}
+    self = Object:new(self.name, self)
+    self.message = {}
     Logger.logfile("Channel:new - wip - passed")
-    return channel
+    return self
 end
 
 function Channel:demand()
     Logger.func_info("Channel:demand")
-    -- Testing a possible solution to specific cases that deal with 
-    -- threads in love2D (Balatro only)
-    -- local info = debug.getinfo(2, "S")
-
-    -- TODO: rework this condition statement (probably won't be needed)
-    --if info.source == "sound_manager.lua" then    
-    --end
-
     local message = self.message[#self.message]
     table.remove(self.message, -1)
     if type(message) == "table" then
