@@ -1,5 +1,8 @@
---FileType class globals
-FileType = {}
+--[[
+    This needs rework
+]]--
+
+FileType = Object:new("FileType")
 
 FileType.file = "file"
 FileType.directory = "directory"
