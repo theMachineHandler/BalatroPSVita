@@ -12,6 +12,6 @@ Thumbs.db
 *.log
 *.tmp
 
-# Unrelated files
+# Unrelated files and folders
 save/
 game/
