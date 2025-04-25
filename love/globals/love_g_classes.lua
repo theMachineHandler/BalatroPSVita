@@ -8,6 +8,7 @@
 
 require("globals/Canvas")
 require("globals/Channel")
+require("globals/Drawable")
 require("globals/FileType")
 require("globals/Font")
 require("globals/Image")
