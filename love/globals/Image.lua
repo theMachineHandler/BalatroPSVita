@@ -1,12 +1,15 @@
---Image global class
-Image = {}
+--[[
+    This needs cleaning
+    Needs more work
+]]--
 
--- Generates new image object
+Image = Object:new("Image")
+
+-- Generates new image "object"
 -- Added filepath to manage memory by loading on 
 -- demand instead of everything at once during initialization
 function Image:new(x, y, mipmap, linear, scale, filepath)
-    local self = {}
-    setmetatable(self, { __index = Image })
+    self = Object:new(self.name, self)
     self.width_x = x
     self.height_y = y
     self.mipmap = mipmap
@@ -22,5 +25,7 @@ function Image:getDimensions()
     Logger.logfile("Image:getDimensions - passed")
     return self.width_x, self.height_y
 end
+
+Logger.logfile("love class - Image module loaded")
 
 Logger.logfile("love class - Image module loaded")
