@@ -1,3 +1,8 @@
+--[[
+    This DEFINETLY needs cleaning
+    Needs more work
+]]--
+
 function love.graphics.clear(r, g, b, a)
     Logger.func_info("graphics.clear")
     Logger.logfile("graphics.clear - background color - r: " .. tostring(r) 
@@ -11,25 +16,49 @@ function love.graphics.clear(r, g, b, a)
 
 end
 
--- TODO: Implement graphics.draw
-function love.graphics.draw( drawable,
-    x,
-    y,
-    r, 
-    sx,
-    sy,
-    ox,
-    oy,
-    kx,
-    ky)
+-- TODO: Implement graphics.draw 
+function love.graphics.draw(...)
+
     Logger.func_info("graphics.draw")
-    Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(drawable) .. 
-    "\nx: " .. tostring(x) .. " y: " .. tostring(y) ..
-    "\nr: " .. tostring(r) .. " sx: " .. tostring(sx) .. " sy: " .. tostring(sy) ..
-    "\nox: " .. tostring(ox) .. " oy: " .. tostring(oy) ..
-    "\nkx: " .. tostring(kx) .. " ky: " .. tostring(ky)
+
+    local args = {...}
+    local argc = #args
+
+    Logger.logfile("graphics.draw - number of args =" .. argc)
+
+    if args[2]:typeOf("Quad") then
+        Logger.logfile("graphics.draw:\nDrawable: " .. Logger.tprint(args[1]) ..
+        "\nQuad: " .. tostring(args[2]) .. " y: " .. tostring(args[3]) ..
+        "\nr: " .. tostring(args[4]) .. " sx: " .. tostring(args[5]) .. " sy: " .. tostring(args[6]) ..
+        "\nox: " .. tostring(args[7]) .. " oy: " .. tostring(args[8]) ..
+        "\nkx: " .. tostring(args[9]) .. " ky: " .. tostring(args[10])
+        )
+
+        Logger.logfile("graphics.draw - fake - passed")
+
+        return
+    end
+
+    if args[2]:typeOf("Trasform") then
+        Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
+        "\nTransform: " .. tostring(args[2])
+        )
+
+        Logger.logfile("graphics.draw - fake - passed")
+
+        return
+    end
+
+    Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
+    "\nquad: " .. Logger.tprint(args[2]) ..
+    "\nx: " .. tostring(args[3]) .. " y: " .. tostring(args[4]) ..
+    "\nr: " .. tostring(args[5]) .. " sx: " .. tostring(args[6]) .. " sy: " .. tostring(args[7]) ..
+    "\nox: " .. tostring(args[8]) .. " oy: " .. tostring(args[9]) ..
+    "\nkx: " .. tostring(args[10]) .. " ky: " .. tostring(args[11])
     )
+
     Logger.logfile("graphics.draw - fake - passed")
+
 end
 
 function love.graphics.getHeight()
@@ -37,7 +66,7 @@ function love.graphics.getHeight()
     Logger.logfile("graphics.getHeight - wip - passed")
     return VITA.ScreenHeight
 end
-
+                                                                          
 function love.graphics.getWidth()
     Logger.func_info("graphics.getWidth")
     Logger.logfile("graphics.getWidth - wip - passed")
