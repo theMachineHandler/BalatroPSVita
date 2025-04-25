@@ -1,6 +1,10 @@
+--[[
+    Does this even need to exist?
+]]--
+
 local bit = require("bit")
 
-local Texture = {}
+local Texture = Object:new("Texture")
 
 local TextureType = {
     TEXTURE_2D = 0,
@@ -72,8 +76,9 @@ local maxLod = 255
 
 
 function Texture:new(height)
-    local self = setmetatable({}, {__index = Texture})
+    self = Object:new(self.name, self)
     self.pixelHeight = height
+	return self
 end
 
 Logger.logfile("love class - Texture module loaded")
