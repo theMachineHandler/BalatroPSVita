@@ -1,9 +1,10 @@
---Quad global class
-Quad = {}
+--[[
+    Needs more work
+]]--
+Quad = Object:new("Quad")
 
 function Quad:new(x, y, width, height, sw, sh)
-    local self = {}
-    setmetatable(self, { __index = Quad })
+    self = Object:new(self.name, self)
     self.x = x
     self.y = y
     self.width = width
