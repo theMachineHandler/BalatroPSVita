@@ -1,13 +1,15 @@
---Thread object globals
-Thread = {}
+--[[
+    Does this even need to exist?
+]]--
+
+Thread = Object:new("Thread")
 
 -- just testing
 function Thread:new(name)
-    local thread = setmetatable({}, { __index = Thread })
-    thread.name = name
-    table.insert(Thread, thread) -- Probably don´t need this...
+    self = Object:new(self.name, self)
+    self.name = name
     Logger.logfile("Thread:new - fake - passed")
-    return thread
+    return self
 end
 
 
