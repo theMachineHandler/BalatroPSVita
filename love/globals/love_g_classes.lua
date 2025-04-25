@@ -1,8 +1,10 @@
--- Globlal tables that I cannot override: 
--- Camera, Color, Controls, Database, 
--- Font, Graphics, Gui, Keyboard, Mic, Network,
--- Registry, Render, Screen, Socket, Sound, System,
--- Timer, Video
+-- LPP-Vita globlal tables 
+-- (to remember not to override): 
+--    Camera, Color, Controls, Database, 
+--    Font, Graphics, Gui, Keyboard, 
+--    Mic, Network, Registry, Render,
+--    Screen, Socket, Sound, System,
+--    Timer, Video
 
 require("globals/Canvas")
 require("globals/Channel")
@@ -10,6 +12,7 @@ require("globals/FileType")
 require("globals/Font")
 require("globals/Image")
 require("globals/Joystick")
+require("globals/Object")
 require("globals/Quad")
 require("globals/Shader")
 require("globals/Source")
