@@ -1,4 +1,8 @@
---love.graphics globals
+--[[
+    This needs cleaning
+    Needs more work
+]]--
+
 DRAW_COLOR = Color.new(0,0,0,0)
 WHITE_COLOR = Color.new(255,255,255,255)
 
@@ -12,7 +16,7 @@ DPI_SCALE_FACTOR = 2.29
 -- Canvas counter
 CANVAS_COUNT = 0
 
--- Original transformStack matrix is 4x4 (probably due to upgradability purposes)
+-- Original Love2D transformStack matrix is 4x4 (probably due to upgradability purposes)
 -- but since we are dealing with 2d, a 3x3 should suffice for this port
 TRANSRFORM_MATRIX_STACK = {}
 
