@@ -1,11 +1,12 @@
--- Font global class
+--[[
+    Font needs to be called LoveFont so it won't override lpp-vita Font global
+    Needs more work
+]]--
 
-LoveFont = {}
+LoveFont = Object:new("Font")
 
--- Creates a pseudofont object that is used to load fonts when called
 function LoveFont:new(filepath, size)
-    local self = {}
-    setmetatable(self, { __index = Font })
+    self = Object:new(self.name, self)
     self.filepath = filepath
     self.size = size
     return self
