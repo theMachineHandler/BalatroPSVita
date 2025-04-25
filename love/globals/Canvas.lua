@@ -1,8 +1,7 @@
--- Canvas class globals
-Canvas = {}
+Canvas = Object:new("Canvas")
 
 function Canvas:new(width, height, settings, filepath)
-    local self = setmetatable({}, { __index = Canvas })
+    self = Object:new(self.name, self)
     self.width = width
     self.height = height
     self.type = settings.type
@@ -12,7 +11,6 @@ function Canvas:new(width, height, settings, filepath)
         filter_two = "linear"
     }
     self.filepath = filepath
-
     Logger.logfile("Canvas:new - wip - passed")
     return self
 end
