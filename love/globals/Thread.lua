@@ -6,7 +6,7 @@ Thread = Object:new("Thread")
 
 -- just testing
 function Thread:new(name)
-    self.thread_name = name
+    self.thread_name = name or "undefined"
     Logger.logfile("Thread:new - fake - passed")
     return self
 end

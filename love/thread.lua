@@ -11,7 +11,7 @@ end
 function love.thread.newThread(filepath)
     Logger.func_info("thread.newThread")
     Logger.logfile("thread.newThread - filepath: " .. filepath)
-    local fake_thread = Thread.new({}, name)
+    local fake_thread = Thread:new()
     Logger.logfile("thread.newThread - fake - passed")
     return fake_thread
 end
