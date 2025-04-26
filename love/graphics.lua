@@ -111,7 +111,7 @@ function love.graphics.newCanvas(width, height, settings)
 
     Logger.logfile("graphics.newCanvas - wip - passed")
 
-    return Canvas.new({}, width, height, settings, canvas_filepath)
+    return Canvas:new(width, height, settings, canvas_filepath)
 
 end
 
@@ -135,8 +135,7 @@ function love.graphics.newImage(filename_path, settings)
     end
     local img = Graphics.loadImage(GAME_PATH .. filename_path)
 
-    local img_obj = Image.new(
-    {}, 
+    local img_obj = Image:new(
     Graphics.getImageWidth(img), 
     Graphics.getImageHeight(img), 
     settings.mipmap,
@@ -172,7 +171,7 @@ end
 
 function love.graphics.newShader(filename_path)
     Logger.func_info("graphics.newShader")
-    local shader = Shader.new({})
+    local shader = Shader:new()
 
     Logger.logfile("graphics.newShader - fake - passed")
     return shader
@@ -366,9 +365,6 @@ function love.graphics.setNewFont(filename, size)
     Logger.logfile("graphics.setNewFont - loading font from: " .. GAME_PATH .. filename)
     Logger.logfile("Font table : " .. Logger.tprint(Font))
     Logger.logfile("Graphics table : " .. Logger.tprint(Graphics))
-    -- TODO: Font functions have not been implemented on lua side...
-    -- need to address that
-    -- SOLUTION: It was actually me overriding the Font table... xD
 
     local font = Font.load(GAME_PATH .. filename)
 

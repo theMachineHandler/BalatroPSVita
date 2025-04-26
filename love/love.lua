@@ -9,7 +9,6 @@ love = {
     timer      = {},
     thread     = {},
     window     = {}
-    
 }
 
 -- game's love.conf

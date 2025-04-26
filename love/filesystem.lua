@@ -38,14 +38,10 @@ end
 
 function love.filesystem.getInfo(path, filtertype)
     Logger.func_info("filesystem.getInfo")
-    -- REMOVE THIS AFTER USE
     Logger.logfile("filesystem.getInfo - arg path: " .. path)
-
     if filtertype ~= nil then
         Logger.logfile("filesystem.getInfo - filtertype: " .. tostring(filtertype))
     end
-    -- REMOVE THIS AFTER USE
-
     local handle
     local size
 
