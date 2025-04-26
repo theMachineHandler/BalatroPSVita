@@ -12,6 +12,8 @@ PROFILE_FILES = {
 MessageBuffer = {}
 MAX_BUFFER_RANGE = 20
 
+package.path = package.path .. GAME_PATH .. "?.lua;"
+
 -- Clear the screen and show a debug message (string).
 -- Add wait time in seconds for the message to persist
 function DebugMessage(message, wait_time)
