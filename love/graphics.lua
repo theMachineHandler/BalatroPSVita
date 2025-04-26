@@ -24,33 +24,35 @@ function love.graphics.draw(...)
     local args = {...}
     local argc = #args
 
-    Logger.logfile("graphics.draw - number of args =" .. argc)
+    Logger.logfile("graphics.draw - number of args =" .. tostring(argc))
 
-    if args[2]:typeOf("Quad") then
-        Logger.logfile("graphics.draw:\nDrawable: " .. Logger.tprint(args[1]) ..
-        "\nQuad: " .. tostring(args[2]) .. " y: " .. tostring(args[3]) ..
-        "\nr: " .. tostring(args[4]) .. " sx: " .. tostring(args[5]) .. " sy: " .. tostring(args[6]) ..
-        "\nox: " .. tostring(args[7]) .. " oy: " .. tostring(args[8]) ..
-        "\nkx: " .. tostring(args[9]) .. " ky: " .. tostring(args[10])
-        )
+    if type(args[2]) == "userdata" then
+        if  args[2]:typeOf("Quad") then
+            Logger.logfile("graphics.draw:\nDrawable: " .. Logger.tprint(args[1]) ..
+            "\nQuad: " .. tostring(args[2]) .. " y: " .. tostring(args[3]) ..
+            "\nr: " .. tostring(args[4]) .. " sx: " .. tostring(args[5]) .. " sy: " .. tostring(args[6]) ..
+            "\nox: " .. tostring(args[7]) .. " oy: " .. tostring(args[8]) ..
+            "\nkx: " .. tostring(args[9]) .. " ky: " .. tostring(args[10])
+            )
 
-        Logger.logfile("graphics.draw - fake - passed")
+            Logger.logfile("graphics.draw - fake - passed")
 
-        return
-    end
+            return
+        end
 
-    if args[2]:typeOf("Transform") then
-        Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
-        "\nTransform: " .. tostring(args[2])
-        )
+        if args[2]:typeOf("Transform") then
+            Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
+            "\nTransform: " .. tostring(args[2])
+            )
 
-        Logger.logfile("graphics.draw - fake - passed")
+            Logger.logfile("graphics.draw - fake - passed")
 
-        return
+            return
+        end
     end
 
     Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
-    "\nquad: " .. Logger.tprint(args[2]) ..
+    "\nx: " .. tostring(args[2]) ..
     "\nx: " .. tostring(args[3]) .. " y: " .. tostring(args[4]) ..
     "\nr: " .. tostring(args[5]) .. " sx: " .. tostring(args[6]) .. " sy: " .. tostring(args[7]) ..
     "\nox: " .. tostring(args[8]) .. " oy: " .. tostring(args[9]) ..
@@ -164,7 +166,7 @@ function love.graphics.newQuad(x, y, width, height, sw, sh)
     .. "; sh: " ..  tostring(sh)
     )
     
-    local quad = Quad.new(x, y, width, height, sw, sh)
+    local quad = Quad:new(x, y, width, height, sw, sh)
     Logger.logfile("graphics.newQuad - passed")
     return quad
 end

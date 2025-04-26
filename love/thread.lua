@@ -3,7 +3,7 @@
 function love.thread.getChannel(name)
     Logger.func_info("thread.getChannel")
     Logger.logfile("thread.getChannel - name: " .. name )
-    local fake_channel = Channel.new({})
+    local fake_channel = Channel:new()
     Logger.logfile("thread.getChannel - fake - passed")
     return fake_channel
 end
