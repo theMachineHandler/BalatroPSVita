@@ -39,7 +39,7 @@ function love.graphics.draw(...)
         return
     end
 
-    if args[2]:typeOf("Trasform") then
+    if args[2]:typeOf("Transform") then
         Logger.logfile("graphics.draw:\ndrawable: " .. Logger.tprint(args[1]) ..
         "\nTransform: " .. tostring(args[2])
         )
