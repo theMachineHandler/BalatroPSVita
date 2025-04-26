@@ -6,18 +6,23 @@
 --    Screen, Socket, Sound, System,
 --    Timer, Video
 
+require("conf")
+
+require("globals/Object")
+
+require("globals/Drawable")
+
+require("globals/Texture")
+
 require("globals/Canvas")
 require("globals/Channel")
-require("globals/Drawable")
 require("globals/FileType")
 require("globals/Font")
 require("globals/Image")
 require("globals/Joystick")
-require("globals/Object")
 require("globals/Quad")
 require("globals/Shader")
 require("globals/Source")
-require("globals/Texture")
 require("globals/Thread")
 require("globals/Transform")
 
