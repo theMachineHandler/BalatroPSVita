@@ -2,15 +2,17 @@
     This needs cleaning and work
 ]]--
 
-Channel = Object:new("Channel")
+local Object = require("locals/Object")
 
-function Channel:new()
+local ChannelMetatable = Object:inherit("Channel")
+
+function ChannelMetatable:new()
     self.message = {}
     Logger.logfile("Channel:new - wip - passed")
     return self
 end
 
-function Channel:demand()
+function ChannelMetatable:demand()
     Logger.func_info("Channel:demand")
     local message = self.message[#self.message]
     table.remove(self.message, -1)
@@ -25,7 +27,7 @@ function Channel:demand()
     return message
 end
 
-function Channel:pop()
+function ChannelMetatable:pop()
     Logger.func_info("Channel:pop")
     local message = self.message[#self.message]
     table.remove(self.message, -1)
@@ -41,7 +43,7 @@ function Channel:pop()
     return message
 end
 
-function Channel:push(message)
+function ChannelMetatable:push(message)
     Logger.func_info("Channel:push")
     table.insert(self.message, message)
     if type(message) == "table" then
@@ -55,4 +57,8 @@ function Channel:push(message)
     Logger.logfile("Channel:push - wip - passed")
 end
 
-Logger.logfile("love class - Channel module loaded")
+local Channel = setmetatable({}, ChannelMetatable)
+
+Logger.logfile("love local - Channel module called - wip")
+
+return Channel

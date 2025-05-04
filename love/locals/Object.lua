@@ -45,4 +45,6 @@ end
 -- Exposing ObjectMetatable to an empty Object table
 local Object = setmetatable({}, ObjectMetatable)
 
+Logger.logfile("love local - Object module called - wip")
+
 return Object

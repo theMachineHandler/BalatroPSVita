@@ -1,6 +1,8 @@
-Canvas = Texture:new("Canvas")
+local Texture = require("locals/Texture")
 
-function Canvas:new(width, height, settings, filepath)
+local CanvasMetatable = Texture:inherit("Canvas")
+
+function CanvasMetatable:new(width, height, settings, filepath)
     self.width = width
     self.height = height
     self.type = settings.type
@@ -14,20 +16,24 @@ function Canvas:new(width, height, settings, filepath)
     return self
 end
 
-function Canvas:getPixelHeight()
+function CanvasMetatable:getPixelHeight()
     Logger.logfile("Canvas:getPixelHeight - wip - passed")
     return self.height
 end
 
-function Canvas:getPixelWidth()
+function CanvasMetatable:getPixelWidth()
     Logger.logfile("Canvas:getPixelWidth - wip - passed")
     return self.width
 end
 
-function Canvas:setFilter(filter_one, filter_two)
+function CanvasMetatable:setFilter(filter_one, filter_two)
     self.filter.filter_one = filter_one
     self.filter.filter_two = filter_two
     Logger.logfile("Canvas:setFilter - wip - passed")
 end
 
-Logger.logfile("love class - Canvas module loaded")
+local Canvas = setmetatable({}, CanvasMetatable)
+
+Logger.logfile("love local - Canvas module called - wip")
+
+return Canvas
