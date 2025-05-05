@@ -16,6 +16,7 @@ function ObjectMetatable:inherit(type_string)
     setmetatable(subclass, self)
     subclass.__index = subclass
     subclass.__type = type_string or "Undefined"
+    subclass.__call = self.__call
     return subclass
 end
 -- __call metamethod for Lua to acknowledge
