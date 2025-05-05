@@ -3,7 +3,7 @@ function love.filesystem.getDirectoryItems(dir, callback)
     if callback ~= nil then
         Logger.logfile("filesystem.getDiretoryItems - callback: " .. tostring(callback))
     end
-    
+
     if System.doesDirExist(GAME_PATH .. dir) then
         Logger.logfile("filesystem.getDirectoryItems - " .. GAME_PATH .. dir .. " exists")
     else
@@ -11,8 +11,7 @@ function love.filesystem.getDirectoryItems(dir, callback)
     end
 
     local files = System.listDirectory(GAME_PATH .. dir)
-    local filesLoveTable = {
-    }
+    local filesLoveTable = {}
 
     -- modifying Luiz Menezes function to remake files 
     -- into a love.getDirectoryItems compliant table
@@ -31,7 +30,7 @@ function love.filesystem.getDirectoryItems(dir, callback)
     --for testing only
     --Logger.logfile(Logger.tprint(filesLoveTable))
 
-    Logger.logfile("filesystem.getDirectoryItems - passed")
+    Logger.logfile("filesystem.getDirectoryItems - wip - passed")
     return filesLoveTable
 
 end
@@ -39,11 +38,14 @@ end
 function love.filesystem.getInfo(path, filtertype)
     Logger.func_info("filesystem.getInfo")
     Logger.logfile("filesystem.getInfo - arg path: " .. path)
+
+    local FileType = require("locals/FileType")
+    local handle
+    local size
+
     if filtertype ~= nil then
         Logger.logfile("filesystem.getInfo - filtertype: " .. tostring(filtertype))
     end
-    local handle
-    local size
 
     --directory check
     if System.doesDirExist(GAME_PATH .. path) then
@@ -92,6 +94,7 @@ end
 function love.filesystem.read(name, size)
     Logger.func_info("filesystem.read")
     Logger.logfile("filesystem.read - arg path: " .. name)
+    
     if size ~= nil then
         Logger.logfile("filesystem.read - size to read from " .. name ..": " .. tostring(size))
     end
