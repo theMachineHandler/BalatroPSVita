@@ -2,17 +2,17 @@
     Does this even need to exist?
 ]]--
 
-Thread = Object:new("Thread")
+local Object = require("locals/Object")
+
+local ThreadMetatable = Object:inherit("Thread")
 
 -- just testing
-function Thread:new(name)
+function ThreadMetatable:init(name)
     self.thread_name = name or "undefined"
-    Logger.logfile("Thread:new - fake - passed")
-    return self
+    Logger.logfile("Thread:init - fake - passed")
 end
 
-
-function Thread:start(arg1, arg2, ...)
+function ThreadMetatable:start(arg1, arg2, ...)
     Logger.func_info("Thread:start")
     Logger.logfile("Thread:start - arg1: " .. tostring(arg1) .. 
     "; arg2: " .. tostring(arg2) ..
@@ -20,4 +20,8 @@ function Thread:start(arg1, arg2, ...)
     Logger.logfile("Thread:start - fake - passed")
 end
 
-Logger.logfile("love class - Thread module loaded")
+local Thread = setmetatable({}, ThreadMetatable)
+
+Logger.logfile("love local - Thread module loaded - wip")
+
+return Thread

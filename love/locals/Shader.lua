@@ -1,14 +1,16 @@
 --[[
     Needs more work
 ]]--
-Shader = Object:new("Shader")
 
-function Shader:new()
-    Logger.logfile("Shader:new - fake - passed")
-    return self
+local Object = require("locals/Object")
+
+local ShaderMetatable = Object:inherit("Shader")
+
+function ShaderMetatable:init()
+    Logger.logfile("Shader:init - fake - passed")
 end
 
-function Shader:send(name, number, ...)
+function ShaderMetatable:send(name, number, ...)
     if type(number) ~= "table" then
         if ... == nil then
             Logger.logfile("Shader:send - name: " .. name
@@ -39,12 +41,16 @@ function Shader:send(name, number, ...)
     Logger.logfile("Shader:send - fake - passed")
 end
 
-function Shader:sendColor(color, rgba_table, ...)
-    Logger.logfile("Shader:sendColor - Color: " .. color .. "; rgba: " .. tprint(rgba_table))
+function ShaderMetatable:sendColor(color, rgba_table, ...)
+    Logger.logfile("Shader:sendColor - Color: " .. color .. "; rgba: " .. Logger.tprint(rgba_table))
     if ... ~= nil then
         Logger.logfile("Shader:sendColor - Additional colors: " .. Logger.print_all(...))
     end
     Logger.logfile("Shader:sendColor - fake - passed")
 end
 
-Logger.logfile("love class - Shader module loaded")
+local Shader = setmetatable({}, ShaderMetatable)
+
+Logger.logfile("love local - Shader module loaded - wip")
+
+return Shader

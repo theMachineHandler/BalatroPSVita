@@ -3,31 +3,38 @@
     Needs more work
 ]]--
 
-Source = Object:new("Source")
+local Object = require("locals/Object")
 
-function Source:new(filename, priority)
-    Logger.func_info("Source:new")
+local SourceMetatable = Object:inherit("Source")
+
+function SourceMetatable:init(filename, priority, volume)
+    Logger.func_info("Source:init")
     self.filename = filename
     self.priority = priority
-    return self
+    self.volume = volume or 10
 end
 
-function Source:isPlaying()
+function SourceMetatable:isPlaying()
     -- should check if it is playing
 end
 
-function Source:release()
+function SourceMetatable:release()
 end
 
-function Source:setVolume(volume)
+function SourceMetatable:setVolume(volume)
     self.volume = volume
 end
 
-function Source:setPitch()
+function SourceMetatable:setPitch()
     -- I don't even know how to begin implementing this
 end
 
-function Source:stop()
+function SourceMetatable:stop()
     -- should stop the sound
 end
 
+local Source = setmetatable({}, SourceMetatable)
+
+Logger.logfile("love local - Source module loaded - wip")
+
+return Source
