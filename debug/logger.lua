@@ -44,6 +44,13 @@ local function initializeLogger()
       System.closeFile(file)
     end
 
+    function Logger.logfile_raw(text)
+      local file = System.openFile(log_file_path, FRDWR)
+      System.seekFile(file, 0, END)
+      System.writeFile(file, text, (string.len(text)) + 1)
+      System.closeFile(file)
+    end
+
     -- Not my solution; 
     -- got from user Luiz Menezes at stackoverflow:
     -- https://stackoverflow.com/questions/41942289/display-contents-of-tables-in-lua
