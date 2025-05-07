@@ -6,6 +6,8 @@ PROFILE_FILES = {
     profile = "profile.jkr"
 }
 
+local IS_DEBUGING = false
+
 -- Implement message buffer to show all messages on screen 
 -- (with new lines for each, and FIFO to delete older ones 
 -- when maximum is reached)
@@ -17,6 +19,10 @@ package.path = package.path .. GAME_PATH .. "?.lua;"
 -- Clear the screen and show a debug message (string).
 -- Add wait time in seconds for the message to persist
 function DebugMessage(message, wait_time)
+
+    if not IS_DEBUGING then
+        return
+    end
 
     table.insert(MessageBuffer, message)
 
