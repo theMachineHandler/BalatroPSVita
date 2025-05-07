@@ -15,7 +15,7 @@ love = {
 require("conf")
 
 -- globals used by love
-require("globals/love_g_graphics")
+require("locals/love_g_graphics")
 
 -- love custom functions:
 require("audio")

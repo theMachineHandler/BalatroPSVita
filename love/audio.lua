@@ -4,7 +4,7 @@ function love.audio.newSource(filename, type)
     local Source = require("locals/Source")
     -- will open an audio file using LPPVita
     Logger.logfile("audio.newSource - file path: " .. GAME_PATH .. filename)
-    local sound_source = Source(filename, 0)
+    local sound_source = Source:instantiate(filename, 0)
     Logger.logfile("audio.newSource - type: " .. type .. " - not being used when called")
     --Logger.logfile("audio.newSource - sound_id (LPPVita): " .. tostring(snd))
     --Logger.logfile("audio.newSource - sound source: " .. Logger.tprint(snd_source))
