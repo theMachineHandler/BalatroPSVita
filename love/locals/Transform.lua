@@ -1,8 +1,6 @@
 local Object = require("locals/Object")
 
-local TransformMetatable = Object:inherit("Transform")
-
-local Transform = setmetatable({}, TransformMetatable)
+local Transform = Object:inherit("Transform")
 
 Logger.logfile("love local - Transform module loaded - wip")
 

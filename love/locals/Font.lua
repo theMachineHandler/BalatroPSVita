@@ -4,14 +4,17 @@
 
 local Object = require("locals/Object")
 
-local FontMetatable = Object:inherit("Font")
+local Font = Object:inherit("Font")
 
-function FontMetatable:init(filepath, size)
+function Font:init(filepath, size)
+    Logger.logfile("FontMetatable:init - filepath: " .. filepath)
+    Logger.logfile_raw("; size: " .. tostring(size))
+    Logger.logfile_raw("\n")
+
     self.filepath = filepath
     self.size = size
+    Logger.logfile("FontMetatable:init - Font: " .. Logger.tprint(self))
 end
-
-local Font = setmetatable({}, FontMetatable)
 
 Logger.logfile("love local - Font module called - wip")
 

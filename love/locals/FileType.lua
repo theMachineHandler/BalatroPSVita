@@ -4,14 +4,12 @@
 
 local Object = require("locals/Object")
 
-local FileTypeMetatable = Object:inherit("FileType")
+local FileType = Object:inherit("FileType")
 
-FileTypeMetatable.file = "file"
-FileTypeMetatable.directory = "directory"
-FileTypeMetatable.symlink = "symlink"
-FileTypeMetatable.other = "other"
-
-local FileType = setmetatable({}, FileTypeMetatable)
+FileType.file = "file"
+FileType.directory = "directory"
+FileType.symlink = "symlink"
+FileType.other = "other"
 
 Logger.logfile("love local - FileType module called - wip")
 

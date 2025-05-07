@@ -5,11 +5,11 @@
 
 local Texture = require("locals/Texture")
 
-local ImageMetatable = Texture:inherit("Image")
+local Image = Texture:inherit("Image")
 
 -- Added filepath to manage memory 
 -- I will try to come up with a solution for on-demand loading
-function ImageMetatable:init(x, y, mipmap, linear, scale, filepath)
+function Image:init(x, y, mipmap, linear, scale, filepath)
     self.width_x = x
     self.height_y = y
     self.mipmap = mipmap
@@ -20,12 +20,10 @@ function ImageMetatable:init(x, y, mipmap, linear, scale, filepath)
     Logger.logfile("Image:new - wip - passed")
 end
 
-function ImageMetatable:getDimensions()
+function Image:getDimensions()
     Logger.logfile("Image:getDimensions - passed")
     return self.width_x, self.height_y
 end
-
-local Image = setmetatable({}, ImageMetatable)
 
 Logger.logfile("love local - Image module called - wip")
 

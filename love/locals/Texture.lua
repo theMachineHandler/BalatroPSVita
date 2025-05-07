@@ -1,8 +1,6 @@
 local Drawable = require("locals/Drawable")
 
-local TextureMetatable = Drawable:inherit("Texture")
-
-local Texture = setmetatable({}, TextureMetatable)
+local Texture = Drawable:inherit("Texture")
 
 Logger.logfile("love local - Texture module called - wip")
 

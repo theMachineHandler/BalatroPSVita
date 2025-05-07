@@ -4,15 +4,14 @@
 
 local Object = require("locals/Object")
 
-local ChannelMetatable = Object:inherit("Channel")
+local Channel = Object:inherit("Channel")
 
-function ChannelMetatable:new()
+function Channel:init()
     self.message = {}
     Logger.logfile("Channel:new - wip - passed")
-    return self
 end
 
-function ChannelMetatable:demand()
+function Channel:demand()
     Logger.func_info("Channel:demand")
     local message = self.message[#self.message]
     table.remove(self.message, -1)
@@ -27,7 +26,7 @@ function ChannelMetatable:demand()
     return message
 end
 
-function ChannelMetatable:pop()
+function Channel:pop()
     Logger.func_info("Channel:pop")
     local message = self.message[#self.message]
     table.remove(self.message, -1)
@@ -43,7 +42,7 @@ function ChannelMetatable:pop()
     return message
 end
 
-function ChannelMetatable:push(message)
+function Channel:push(message)
     Logger.func_info("Channel:push")
     table.insert(self.message, message)
     if type(message) == "table" then
@@ -56,8 +55,6 @@ function ChannelMetatable:push(message)
     --Logger.logfile("Current channel messages: " .. Logger.tprint(self.message))
     Logger.logfile("Channel:push - wip - passed")
 end
-
-local Channel = setmetatable({}, ChannelMetatable)
 
 Logger.logfile("love local - Channel module called - wip")
 
