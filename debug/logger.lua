@@ -15,7 +15,10 @@ local function initializeLogger()
     Logger.createFile = createStub()
     Logger.func_info = createStub()
     Logger.logfile = createStub()
+    Logger.logfile_raw = createStub()
     Logger.tprint = function() return "" end
+    Logger.limited_tprint = function() return "" end
+
   else
 
     -- Creates log.txt
@@ -81,7 +84,51 @@ local function initializeLogger()
       toprint = toprint .. string.rep(" ", indent-2) .. "}"
       return toprint
     end
+
+    function Logger.limited_tprint(tbl, indent, depth, seen)
+      -- initialize parameters
+      indent = indent or 0
+      depth  = depth  or 0
+
+      -- nil guard
+      if tbl == nil then
+        return string.rep(" ", indent) .. "nil"
+      end
+
+      -- if we’re too deep, don’t descend further
+      if depth >= 2 then
+        return string.rep(" ", indent) .. "{...}"
+      end
+
+      local pad = string.rep(" ", indent)
+      local out = { pad .. "{\n" }
+
+      for k, v in pairs(tbl) do
+        -- skip any “magic”/metamethod fields
+        if not (type(k) == "string" and k:sub(1,2) == "__") then
+          local keyRep = (type(k) == "string") and k or ("["..tostring(k).."]")
+          local line   = string.rep(" ", indent + 2) .. keyRep .. " = "
+
+          if type(v) == "table" then
+            -- recurse one level deeper
+            out[#out+1] = line .. "\n"
+            out[#out+1] = Logger.tprint(v, indent + 4, depth + 1)
+            out[#out+1] = ",\n"
+          else
+            -- primitive value
+            local valRep = (type(v) == "string") and string.format("%q", v)
+                        or tostring(v)
+            out[#out+1] = line .. valRep .. ",\n"
+          end
+        end
+      end
+
+      out[#out+1] = pad .. "}"
+      return table.concat(out)
+    end
+
   end
+
 end
 
 initializeLogger()
