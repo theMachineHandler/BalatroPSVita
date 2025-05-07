@@ -7,6 +7,5 @@ require("vita_globals")
 require("love")
 require("overrides")
 require("main")
-require("main_overrides")
 
 love.run()
